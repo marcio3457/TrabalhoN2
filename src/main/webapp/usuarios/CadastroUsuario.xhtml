@@ -1,0 +1,53 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+	<ui:define name="titulo">#{loginBean.editando ? 'Edição de Usuario' : 'Novo Usuario'}</ui:define>
+
+	<ui:define name="corpo">
+
+		<f:metadata>
+			<o:viewParam name="usuario" value="#{loginBean.usuario}" />
+			<f:event listener="#{loginBean.inicializar}" type="preRenderView" />
+		</f:metadata>
+
+
+		<h:form>
+			<h1>#{loginBean.editando ? 'Edição de Usuario' : 'Novo Usuario'}</h1>
+
+			<p:messages autoUpdate="true" closable="true" />
+
+			<p:toolbar style="margin-top: 20px">
+				<p:toolbarGroup>
+					<p:commandButton value="Novo" id="botaoNovo"
+						action="#{loginBean.limpar}" update="@form" />
+					<p:commandButton value="Salvar" id="botaoSalvar"
+						action="#{loginBean.salvar}" update="@form" />
+				</p:toolbarGroup>
+				<p:toolbarGroup align="right">
+					<p:button value="Pesquisa" outcome="/usuarios/PesquisaUsuarios" />
+				</p:toolbarGroup>
+			</p:toolbar>
+
+			<p:panelGrid columns="2" id="painel"
+				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
+
+				<p:outputLabel value="Email" for="email" />
+				<p:inputText id="email" size="60" maxlength="80"
+					value="#{loginBean.usuario.email}" />
+
+				<p:outputLabel value="Nome" for="nome" />
+				<p:inputText id="nome" size="60" maxlength="80"
+					value="#{loginBean.usuario.nome}" />
+
+				<p:outputLabel value="Senha" for="senha" />
+				<p:inputText id="senha" size="15" maxlength="20"
+					value="#{loginBean.usuario.senha}" />
+
+			</p:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>

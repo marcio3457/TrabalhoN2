@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<faces-config
-    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
-    version="2.2">
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+
+
+	<managed-bean>
+		<managed-bean-name>InternacionalizacaoMB</managed-bean-name>
+		<managed-bean-class>br.com.projetodw.controller.InternacionalizacaoMB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+
+	<!-- Arquivo de Propriedades: Internacionalização -->
+
 
 	<application>
 		<message-bundle>br.com.projetodw.Messages</message-bundle>
-	
+		<resource-bundle>
+			<base-name>br.com.projetodw.Messages</base-name>
+			<var>msg</var>
+		</resource-bundle>
+
+
 		<locale-config>
 			<default-locale>pt_BR</default-locale>
+			<supported-locale>en</supported-locale>
+			<supported-locale>pt_BR</supported-locale>
 		</locale-config>
 	</application>
 
@@ -18,5 +34,6 @@
 			br.com.projetodw.util.jsf.JsfExceptionHandlerFactory
 		</exception-handler-factory>
 	</factory>
+
 
 </faces-config>

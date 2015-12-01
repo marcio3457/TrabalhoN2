@@ -9,16 +9,16 @@ import br.com.projetodw.model.Usuario;
 import br.com.projetodw.repository.Usuarios;
 import br.com.projetodw.util.cdi.CDIServiceLocator;
 
-@FacesConverter(forClass=Usuario.class)
+@FacesConverter(forClass = Usuario.class)
 public class UsuarioConverter implements Converter {
 
-	//@Inject
+	// @Inject
 	private Usuarios usuarios;
-	
+
 	public UsuarioConverter() {
-		this.usuarios = (Usuarios) CDIServiceLocator.getBean(Usuarios.class);
+		usuarios = CDIServiceLocator.getBean(Usuarios.class);
 	}
-	
+
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
 		Usuario retorno = null;
@@ -32,10 +32,10 @@ public class UsuarioConverter implements Converter {
 
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
-		if (value != null) {
-			return ((Usuario) value).getId().toString();
-		}
-		return "";
+		// if (value != null) {
+		// return ((Usuario) value).getNome().toString();
+		// }
+		return null;
 	}
 
 }

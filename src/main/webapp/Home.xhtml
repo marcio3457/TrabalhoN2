@@ -16,6 +16,62 @@
 	<ui:define name="corpo">
 
 
+		<h1>Bem Vindo ao Sistema!</h1>
+
+		<f:view locale="#{Internacionalizacao.mudarIdioma}" />
+		<f:loadBundle basename="br.com.projetodw.Messages"
+			var="internacionalizacao" />
+
+	<br />	<br />	<br />
+		<h:form>
+			<!-- INICIO - Menu Internacionalizacao -->
+			<h:outputText value="#{msg.linguagem}: " />
+			<h:commandLink value="BR"
+				action="#{InternacionalizacaoMB.mudarIdioma}">
+				<f:setPropertyActionListener value="pt"
+					target="#{InternacionalizacaoMB.linguagem}" />
+				<f:setPropertyActionListener value="BR"
+					target="#{InternacionalizacaoMB.pais}" />
+			</h:commandLink>
+			<br />
+			<h:commandLink value="DE"
+				action="#{InternacionalizacaoMB.mudarIdioma}">
+
+				<f:setPropertyActionListener value="de"
+					target="#{InternacionalizacaoMB.linguagem}" />
+				<f:setPropertyActionListener value=""
+					target="#{InternacionalizacaoMB.pais}" />
+			</h:commandLink>
+			<br />
+			<h:commandLink value="FR"
+				action="#{InternacionalizacaoMB.mudarIdioma}">
+				<f:setPropertyActionListener value="fr"
+					target="#{InternacionalizacaoMB.linguagem}" />
+				<f:setPropertyActionListener value=""
+					target="#{InternacionalizacaoMB.pais}" />
+			</h:commandLink>
+			<br />
+			<h:commandLink value="EN"
+				action="#{InternacionalizacaoMB.mudarIdioma}">
+				<f:setPropertyActionListener value="en"
+					target="#{InternacionalizacaoMB.linguagem}" />
+				<f:setPropertyActionListener value=""
+					target="#{InternacionalizacaoMB.pais}" />
+			</h:commandLink>
+			<br />
+			<h:commandLink value="IT"
+				action="#{InternacionalizacaoMB.mudarIdioma}">
+
+				<f:setPropertyActionListener value="it"
+					target="#{InternacionalizacaoMB.linguagem}" />
+				<f:setPropertyActionListener value=""
+					target="#{InternacionalizacaoMB.pais}" />
+			</h:commandLink>
+			<!-- FIM - Menu Internacionalizacao -->
+
+			<h:outputText value="#{internacionalizacao.titulo}" />
+
+		</h:form>
 	</ui:define>
 
 </ui:composition>

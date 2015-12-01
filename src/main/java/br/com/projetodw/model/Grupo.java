@@ -28,7 +28,7 @@ public class Grupo implements Serializable {
 		this.id = id;
 	}
 
-	@Column(nullable=false, length=40)
+	@Column(nullable = false, length = 40)
 	public String getNome() {
 		return nome;
 	}
@@ -37,7 +37,7 @@ public class Grupo implements Serializable {
 		this.nome = nome;
 	}
 
-	@Column(nullable=false, length=80)
+	@Column(nullable = false, length = 80)
 	public String getDescricao() {
 		return descricao;
 	}
