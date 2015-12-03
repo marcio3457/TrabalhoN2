@@ -16,7 +16,7 @@
 			<p:toolbar style="margin-top: 20px">
 				<p:toolbarGroup>
 					<p:commandButton value="Emitir"
-						action="#{relatorioPedidosEmitidosBean.emitir}" ajax="false" />
+						action="#{PedidosEmitidosRelBean.emitir}" ajax="false" />
 				</p:toolbarGroup>
 			</p:toolbar>
 
@@ -24,12 +24,12 @@
 				style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
 				<p:outputLabel value="Data de criação" />
 				<h:panelGroup>
-					<p:calendar value="#{relatorioPedidosEmitidosBean.dataInicio}"
+					<p:calendar value="#{PedidosEmitidosRelBean.dataInicio}"
 						label="Data inicial" pattern="dd/MM/yyyy" size="8" />
 					<p:spacer width="8" />
 					<h:outputText value="a" />
 					<p:spacer width="8" />
-					<p:calendar value="#{relatorioPedidosEmitidosBean.dataFim}"
+					<p:calendar value="#{PedidosEmitidosRelBean.dataFim}"
 						label="Data final" pattern="dd/MM/yyyy" size="8" />
 				</h:panelGroup>
 			</p:panelGrid>

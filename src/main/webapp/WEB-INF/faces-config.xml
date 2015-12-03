@@ -7,7 +7,7 @@
 
 	<managed-bean>
 		<managed-bean-name>InternacionalizacaoMB</managed-bean-name>
-		<managed-bean-class>br.com.projetodw.controller.InternacionalizacaoMB</managed-bean-class>
+		<managed-bean-class>br.com.projeton2.controller.InternacionalizacaoMB</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 
@@ -15,9 +15,9 @@
 
 
 	<application>
-		<message-bundle>br.com.projetodw.Messages</message-bundle>
+		<message-bundle>br.com.projeton2.Messages</message-bundle>
 		<resource-bundle>
-			<base-name>br.com.projetodw.Messages</base-name>
+			<base-name>br.com.projeton2.Messages</base-name>
 			<var>msg</var>
 		</resource-bundle>
 
@@ -31,7 +31,7 @@
 
 	<factory>
 		<exception-handler-factory>
-			br.com.projetodw.util.jsf.JsfExceptionHandlerFactory
+			br.com.projeton2.util.jsf.JsfExceptionHandlerFactory
 		</exception-handler-factory>
 	</factory>
 

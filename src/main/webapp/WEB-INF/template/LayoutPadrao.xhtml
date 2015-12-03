@@ -27,9 +27,9 @@
 
 	<header>
 	<div style="float: left">
-		<h:link outcome="/Home">
-			<h1>Sistema Para Trabalho DW</h1>
-		</h:link>
+		<p:link outcome="/Home">
+			<h1>Tabalho N2</h1>
+		</p:link>
 	</div>
 
 	<div style="float: right; margin-right: 110px">
@@ -43,18 +43,18 @@
 			<p:menubar styleClass="menu-sistema">
 				<p:submenu label="Cadastros">
 					<p:menuitem value="Novo Usuário"
-						outcome="/usuarios/CadastroUsuario" />
+						outcome="/cadastros/CadastroUsuario" />
 					<p:menuitem value="Pesquisa Usuários"
-						outcome="/usuarios/PesquisaUsuarios" />
+						outcome="/listagens/PesquisaUsuarios" />
 					<p:separator />
 					<p:menuitem value="Novo Produto"
-						outcome="/produtos/CadastroProduto" />
+						outcome="/cadastros/CadastroProduto" />
 					<p:menuitem value="Pesquisa Produtos"
-						outcome="/produtos/PesquisaProdutos" />
+						outcome="/listagens/PesquisaProdutos" />
 				</p:submenu>
 				<p:submenu label="Pedidos">
-					<p:menuitem value="Novo pedido" outcome="/pedidos/CadastroPedido" />
-					<p:menuitem value="Pesquisa" outcome="/pedidos/PesquisaPedidos" />
+					<p:menuitem value="Novo pedido" outcome="/cadastros/CadastroPedido" />
+					<p:menuitem value="Pesquisa" outcome="/listagens/PesquisaPedidos" />
 				</p:submenu>
 
 				<p:menuitem value="Sair" url="/j_spring_security_logout" />
@@ -80,7 +80,8 @@
 	<p:separator style="margin-top: 20px" />
 
 	<footer> Centro Universitario de goias Uni-Anhanguera,
-	201411127 - Marcelo Henrique Carvalho de Aquino ADS 4 periodo </footer>
+	201411126 - Marcio Humberto Carvalho de Aquino ADS, 4° periodo
+	200710429 - Luis Paulo Moura Vaz, ADS, 4° periodo </footer>
 
 	<script>
 		function configurarMoeda() {

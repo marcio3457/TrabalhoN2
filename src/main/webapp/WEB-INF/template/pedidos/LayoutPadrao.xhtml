@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title><ui:insert name="titulo">#{}</ui:insert></title>
+	<h:outputStylesheet library="css" name="sistema.css" />
+	<h:outputScript library="js" name="jquery.maskMoney.js" />
+</h:head>
+
+<h:body>
+
+
+	<p:ajaxStatus styleClass="ajax-status" onsuccess="configurarMoeda()">
+		<f:facet name="start">
+			<h:graphicImage library="images" name="loading.gif" />
+		</f:facet>
+		<f:facet name="complete">
+			<h:outputText value="" />
+		</f:facet>
+	</p:ajaxStatus>
+
+	<header>
+	<div style="float: left">
+		<h:link outcome="/Home">
+			<h1>Tabalho N2</h1>
+		</h:link>
+	</div>
+
+	<div style="float: right; margin-right: 110px">
+
+
+		<span
+			style="float: left; height: 30px; line-height: 30px; margin-right: 60px">
+			Olá #{seguranca.nomeUsuario}! </span>
+
+		<h:form style="display: inline-block">
+			<p:menubar styleClass="menu-sistema">
+				<p:submenu label="Cadastros">
+					<p:menuitem value="Novo Usuário"
+						outcome="/cadastros/CadastroUsuario" />
+					<p:menuitem value="Pesquisa Usuários"
+						outcome="/listagens/PesquisaUsuarios" />
+					<p:separator />
+					<p:menuitem value="Novo Produto"
+						outcome="/cadastros/CadastroProduto" />
+					<p:menuitem value="Pesquisa Produtos"
+						outcome="/listagens/PesquisaProdutos" />
+				</p:submenu>
+				<p:submenu label="Pedidos">
+					<p:menuitem value="Novo pedido" outcome="/cadastros/CadastroPedido" />
+					<p:menuitem value="Pesquisa" outcome="/listagens/PesquisaPedidos" />
+				</p:submenu>
+
+				<p:menuitem value="Sair" url="/j_spring_security_logout" />
+
+			</p:menubar>
+
+
+
+
+
+
+
+
+		</h:form>
+	</div>
+	<div style="clear: both"></div>
+	</header>
+
+	<div id="conteudo">
+		<ui:insert name="corpo" />
+	</div>
+
+	<p:separator style="margin-top: 20px" />
+
+	<footer> Centro Universitario de goias Uni-Anhanguera,
+	201411127 - Marcio Humberto Carvalho de Aquino ADS 4 periodo </footer>
+
+	<script>
+		function configurarMoeda() {
+			$(".moeda").maskMoney({
+				decimal : ",",
+				thousands : ".",
+				allowZero : true
+			});
+		}
+
+		$(document).ready(function() {
+			configurarMoeda();
+		});
+	</script>
+</h:body>
+
+</html>

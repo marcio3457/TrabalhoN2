@@ -6,7 +6,7 @@
            http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
 	<beans:bean id="appUserDetailsService"
-		class="br.com.projetodw.security.AppUserDetailsService" />
+		class="br.com.projeton2.security.AppUserDetailsService" />
 
 	<beans:bean id="exceptionTranslationFilter"
 		class="org.springframework.security.web.access.ExceptionTranslationFilter">
@@ -15,19 +15,19 @@
 	</beans:bean>
 
 	<beans:bean id="jsfAccessDeniedHandler"
-		class="br.com.projetodw.security.JsfAccessDeniedHandler">
+		class="br.com.projeton2.security.JsfAccessDeniedHandler">
 		<beans:property name="loginPath" value="/AcessoNegado.xhtml" />
 		<beans:property name="contextRelative" value="true" />
 	</beans:bean>
 
 	<beans:bean id="authenticationEntryPoint"
-		class="br.com.projetodw.security.JsfLoginUrlAuthenticationEntryPoint">
+		class="br.com.projeton2.security.JsfLoginUrlAuthenticationEntryPoint">
 		<beans:property name="loginFormUrl" value="/Login.xhtml" />
 		<beans:property name="redirectStrategy" ref="jsfRedirectStrategy" />
 	</beans:bean>
 
 	<beans:bean id="jsfRedirectStrategy"
-		class="br.com.projetodw.security.JsfRedirectStrategy" />
+		class="br.com.projeton2.security.JsfRedirectStrategy" />
 
 	<http pattern="/Login.xhtml" security="none" />
 	<http pattern="/Erro.xhtml" security="none" />
@@ -38,12 +38,14 @@
 
 		<intercept-url pattern="/Home.xhtml" access="isAuthenticated()" />
 		<intercept-url pattern="/AcessoNegado.xhtml" access="isAuthenticated()" />
-		<intercept-url pattern="/pedidos/**"
-			access="hasAnyRole('VENDEDORES', 'AUXILIARES', 'ADMINISTRADORES')" />
-		<intercept-url pattern="/produtos/**" access="hasAnyRole('ADMINISTRADORES')" />
-		<intercept-url pattern="/relatorios/**" access="hasAnyRole('ADMINISTRADORES')" />
-		<intercept-url pattern="/usuarios/**" access="hasAnyRole('ADMINISTRADORES')" />
-		<intercept-url pattern="/**" access="denyAll" />
+		<intercept-url pattern="/cadastros/CadastroPedido" access="hasAnyRole('VENDEDORES', 'AUXILIARES', 'ADMINISTRADORES')" />
+		<intercept-url pattern="/cadastros/CadastroProduto" access="hasAnyRole('VENDEDORES','AUXILIARES','ADMINISTRADORES')" />
+		<intercept-url pattern="/cadastros/CadastroUsuario" access="hasAnyRole('ADMINISTRADORES')"/>
+		<intercept-url pattern="/listagens/PesquisaPedidos" access="hasAnyRole('VENDEDORES', 'AUXILIARES', 'ADMINISTRADORES')" />
+		<intercept-url pattern="/listagens/PesquisaProdutos" access="hasAnyRole('VENDEDORES','AUXILIARES','ADMINISTRADORES')" />
+		<intercept-url pattern="/listagens/PesquisaUsuarios" access="hasAnyRole('ADMINISTRADORES')"/>
+		
+		<intercept-url pattern="/**" access="hasAnyRole('ADMINISTRADORES')" />
 
 		<form-login login-page="/Login.xhtml"
 			authentication-failure-url="/Login.xhtml?invalid=true"
